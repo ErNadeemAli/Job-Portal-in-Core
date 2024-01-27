@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Job_portal_in_Core.Models.Admin>
+
+@{
+    ViewData["Title"] = "dashboard";
+}
+@{
+    Layout = "~/views/shared/_layout_dashboard.cshtml";
+}
+<h1>dashboard</h1>
+
+
+<table class="table">
+    <thead  class="table-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.admin_email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.admin_password)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.admin_email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.admin_password)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

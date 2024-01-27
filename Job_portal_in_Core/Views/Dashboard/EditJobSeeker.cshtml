@@ -1,0 +1,46 @@
+﻿@model Job_portal_in_Core.Models.JobSeeker
+
+@{
+    ViewData["Title"] = "Update JobSeeker";
+}
+@{
+    Layout = "~/views/shared/_layout_dashboard_Seeker.cshtml";
+}
+
+<h1 class="text-center text-success">Update JobSeeker</h1>
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="EditJobSeeker">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="gander" class="control-label"></label>
+                <input asp-for="gander" class="form-control" />
+                <span asp-validation-for="gander" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="email" class="control-label"></label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="password" class="control-label"></label>
+                <input asp-for="password" class="form-control" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+

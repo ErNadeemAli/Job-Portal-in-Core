@@ -1,0 +1,51 @@
+﻿@model Job_portal_in_Core.Models.JobSeeker
+
+@{
+    ViewData["Title"] = "Registration";
+}
+@if (ViewBag.msg != null)
+{
+    <p style="font:bold; color:forestgreen;">@ViewBag.msg</p>
+}
+<h3 class="text-center bg-info text-white">Job Seeker Registration</h3>
+
+<div class="container">
+
+    <div class="row" id="reg-fom">
+        <div class="col-lg-6">
+            <form asp-action="Registration">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="name" class="control-label"></label>
+                    <input asp-for="name" class="form-control" />
+                    <span asp-validation-for="name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="gander" class="control-label"></label>
+                    <input asp-for="gander" class="form-control" />
+                    <span asp-validation-for="gander" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="email" class="control-label"></label>
+                    <input asp-for="email" class="form-control" />
+                    <span asp-validation-for="email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="password" class="control-label"></label>
+                    <input asp-for="password" class="form-control" />
+                    <span asp-validation-for="password" class="text-danger"></span>
+                </div>
+                <div class="form-group mt-2">
+                    <input type="submit" value="Register" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

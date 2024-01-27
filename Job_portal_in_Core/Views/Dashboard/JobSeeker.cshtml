@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Job_portal_in_Core.Models.JobSeeker>
+
+@{
+    ViewData["Title"] = "JobSeeker";
+}
+@{
+    Layout = "~/views/shared/_layout_dashboard_Seeker.cshtml";
+}
+
+<h1 class="text-center text-success">Job Seeker</h1>
+@if (TempData["mes"] != null)
+{
+    <p style="color:green; font:bold;">@TempData["mes"]</p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gander)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.password)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gander)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.password)
+            </td>    
+           
+            <td>
+                    <a asp-action="EditJobSeeker" style="font-size:20px; text-decoration:none; color:green" asp-route-id="@item.id"><i class="fa fa-pencil-square-o text-success" aria-hidden="true"></i>Update</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> 
+              
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

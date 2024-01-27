@@ -1,0 +1,41 @@
+﻿@model Job_portal_in_Core.Models.login
+
+@{
+    ViewData["Title"] = "SingIn";
+}
+
+
+<div class="container">
+    
+    <div class="row login-page">
+
+        <h3>SingIn</h3>
+        @if (ViewBag.msg != null)
+        {
+            <p style="color:red; font-size:20px;">@ViewBag.msg</p>
+        }
+        <form asp-action="SingIn">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="email" class="control-label"></label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="password" class="control-label"></label>
+                <input asp-for="password" class="form-control" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="SingIn" class="btn btn-primary mt-2" />
+            </div>
+            
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

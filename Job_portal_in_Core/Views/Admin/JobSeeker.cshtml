@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Job_portal_in_Core.Models.JobSeeker>
+
+@{
+    ViewData["Title"] = "JobSeeker";
+}
+@{
+    Layout = "~/views/shared/_layout_dashboard_recruiter.cshtml";
+}
+<h1 class="text-center bg-body">JobSeeker</h1>
+
+@if (TempData["mes"] != null)
+{
+    <p style="color:green; font:bold;">@TempData["mes"]</p>
+}
+<table class="table tabled">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gander)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.password)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gander)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.password)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.id" style="text-decoration:none; color:green;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.id" style="text-decoration:none; color:darkblue;"><i class="fa fa-info-circle" aria-hidden="true"></i>Details</a> |
+                    <a asp-action="DeleteJobSeeker" asp-route-id="@item.id" style="text-decoration:none; color:red;"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
+               
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

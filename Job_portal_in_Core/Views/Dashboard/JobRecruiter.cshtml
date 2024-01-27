@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Job_portal_in_Core.Models.JobRecruiter>
+
+@{
+    ViewData["Title"] = "JobRecruiter";
+}
+@{
+    Layout = "~/views/shared/_layout_dashboard_recruiter.cshtml";
+}
+<h1 class ="text-center text-success">Job Recruiter</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Company_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company_url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company_email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company_password)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company_url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company_email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company_password)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
+               
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
