@@ -20,6 +20,8 @@ namespace Job_portal_in_Core.Models
         [Required(ErrorMessage = "Password is Mendatory")]
         [DisplayName("Seeker Password")]
         public string? password { get; set; }
+        //public string? Image { get; set; }
+        
 
 
         public string? usertype = "seeker";

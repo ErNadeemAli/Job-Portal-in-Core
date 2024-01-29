@@ -100,6 +100,31 @@ namespace Job_portal_in_Core.Controllers
             
             
         }
+        public IActionResult Country()
+        {
+            
+            return View();
+     
+        
+        }
+        [HttpPost]
+        public IActionResult Country(Country_tbl _Tbl)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Country_tbl.Add(_Tbl);
+                int i=_db.SaveChanges();
+                if( i > 0)
+                {
+                    ModelState.Clear();
+                    ViewBag.mes = "New Country Added";
+                }
+            }
+            return View();
+            
+            
+            
+        }
         
     }
 }

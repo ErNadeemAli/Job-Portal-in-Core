@@ -8,7 +8,10 @@
 }
 <h1 class ="text-center text-success">Job Recruiter</h1>
 
-
+@if (TempData["mes"] != null)
+{
+    <p style="color:green;font-size:20px;">@TempData["mes"] </p>
+}
 <table class="table">
     <thead>
         <tr>

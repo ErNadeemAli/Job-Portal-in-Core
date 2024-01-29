@@ -13,5 +13,7 @@ namespace Job_portal_in_Core.Models
         public DbSet<JobRecruiter> Recruiter { get; set; }
         public DbSet<Admin> admins { get; set; }
        
+        public DbSet<Country_tbl> Country_tbl { get; set; } 
+       
     }
 }
